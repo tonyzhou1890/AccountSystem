@@ -140,7 +140,7 @@ class AddOrderGrid extends Component {
 		return ({key, label})=> {
 			const dataSource = [...this.state.dataSource];
 			const arr = label.match(/([\u4e00-\u9fa5\w]+)/g);
-            if(key!=''&&arr!=null){
+            if(key!=''&&arr!=null){//eslint-disable-line
                 dataSource[index]['productId'] = key;
                 dataSource[index]['productName'] = arr[0];
                 dataSource[index]['productUnit'] = arr[1];
@@ -156,20 +156,20 @@ class AddOrderGrid extends Component {
         return (value)=> {
             let dataSource = [...this.state.dataSource];
             let record = dataSource[index];
-            if (key == 'quantity') {
+            if (key == 'quantity') {//eslint-disable-line
                 let price = record.price;
-				let selectProduct = productList.filter(product=> product._id==record.productId)[0];
+				let selectProduct = productList.filter(product=> product._id==record.productId)[0];//eslint-disable-line
 				/*如果输入的产品数量大于库存量，则给出提示*/
                 if(value>selectProduct.amount){
 					message.error(`商品数量不能大于当前库存量: ${selectProduct.amount}！`);
 					value=0;
 				}
-                if (price != null) {
+                if (price != null) {//eslint-disable-line
                     record.amount = (value*price).toFixed(2)*1;
                 }
-            } else if (key == 'price') {
+            } else if (key == 'price') {//eslint-disable-line
                 let quantity = record.quantity;
-                if (quantity != null) {
+                if (quantity != null) {//eslint-disable-line
                     record.amount = (value*quantity).toFixed(2)*1;
                 }
             }

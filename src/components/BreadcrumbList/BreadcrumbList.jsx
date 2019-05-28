@@ -6,6 +6,7 @@ import {breadcrumb} from './index.css';
 const BreadcrumbItem = Breadcrumb.Item;
 
 export default class BreadcrumbList extends Component {
+    //eslint-disable-line
     constructor(props) {
         super(props);
     }

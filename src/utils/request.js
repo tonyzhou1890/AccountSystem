@@ -1,5 +1,7 @@
 import fetch from 'dva/fetch';
 import {HTTP_SERVER, DEFAULT_OPTIONS} from '../constants/constants';
+import app from '../index'
+import { redirect } from './webSessionUtils'
 
 function parseJSON(response) {
     return response.json();
@@ -37,6 +39,21 @@ export default function request(url, options) {
     return fetch(`${HTTP_SERVER}${url}`, {...DEFAULT_OPTIONS, ...options})
         .then(checkStatus)
         .then(parseJSON)
-        .then((data) => ({data}))
-        .catch((err) => ({err}));
+        // .then((data) => ({data}))
+        .then((data) => {
+            if (data.isAuth !== false) {
+                return {data}
+            } else {
+                app._store.dispatch({type: 'systemUser/logoutSuccess'})
+                sessionStorage.removeItem('userInfo')
+                throw new Error('isAuth: false')
+                redirect()
+            }
+            
+        })
+        // .catch((err) => ({err}));
+        .catch((err) => {
+            console.log(err)
+            return {}
+        });
 }

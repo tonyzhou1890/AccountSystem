@@ -64,6 +64,8 @@ export default {
                         current: data.page.current
                     }
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
 		*doClearOrder({payload}, {call, put}){

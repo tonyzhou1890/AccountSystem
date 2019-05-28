@@ -19,7 +19,7 @@ export default {
     subscriptions: {
         setup({dispatch, history}) {
             history.listen(location => {
-				if(location.pathname=='/resource'){
+				if(location.pathname === '/resource'){
 					dispatch({
 						type: 'queryProducts'
 					});
@@ -40,7 +40,7 @@ export default {
     		yield put({
     			type: 'showLoading'
 			});
-			let productId = payload && payload.productId!='00000'?payload.productId:'';
+			let productId = payload && payload.productId!='00000'?payload.productId:'';//eslint-disable-line
 			const {data} = yield call(query, {productId});
 			if(data && data.success) {
 				yield put({

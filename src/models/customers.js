@@ -57,6 +57,8 @@ export default {
                         current: data.page.current
                     }
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *create({payload}, {call, put}){
@@ -88,6 +90,8 @@ export default {
                 yield put({
                 	type: 'resetCustomer'
 				});
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *del({payload}, {call, put}){
@@ -98,6 +102,8 @@ export default {
                     type: 'delSuccess',
                     payload
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *fetchRemote({payload}, {call, put}) {

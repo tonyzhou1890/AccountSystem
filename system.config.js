@@ -1,7 +1,7 @@
 /**
  * Created by hanlu on 2017/3/24.
  */
-const debug = process.env.NODE_ENV == 'development';
+const debug = process.env.NODE_ENV == 'development';//eslint-disable-line
 //服务器端口
 const serverPort = '4000';
 

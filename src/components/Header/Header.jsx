@@ -54,7 +54,7 @@ export default class Header extends Component {
 				>
 					{
 						menus.map(([key, path, text, icon], index) => {
-								if (key == 'manage') {
+								if (key == 'manage') {//eslint-disable-line
 									return (
 										<SubMenu key={key} title={<span><Icon type="setting"/><span>{text}</span></span>}>
 											{
@@ -67,7 +67,7 @@ export default class Header extends Component {
 											}
 										</SubMenu>
 									)
-								} else if (key == 'bills') {
+								} else if (key == 'bills') {//eslint-disable-line
 									return (
 										<SubMenu key={key} title={<span><Icon type="copy"/><span>{text}</span></span>}>
 											{

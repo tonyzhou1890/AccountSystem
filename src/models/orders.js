@@ -1,6 +1,7 @@
 import {query, create, modify, del, getOrderNumber, queryOrderById} from '../services/orders';
 import * as customers from '../services/customers';
 import * as resource from '../services/resource';
+import * as products from '../services/products';
 import {parse} from 'qs';
 const defaultProduct = {
     key: '0',
@@ -98,6 +99,7 @@ export default {
             let {page, timeRange, customerId, orderNumber} = yield select(state=>state.orders);
 			customerId = customerId=='00000'?'':customerId;
             const {data} = yield call(query, parse({page, timeRange, customerId, orderNumber}));
+            console.log(data)
             if (data) {
                 yield put({
                     type: 'querySuccess',
@@ -107,6 +109,8 @@ export default {
                         current: data.page.current
                     }
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *create({payload}, {call, put}){
@@ -127,6 +131,8 @@ export default {
                 yield put({
                     type: 'resetOrder'
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *modify({payload}, {select, call, put}){
@@ -149,6 +155,8 @@ export default {
                 yield put({
                     type: 'resetOrder'
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *del({payload}, {call, put}){
@@ -159,6 +167,8 @@ export default {
                     type: 'delSuccess',
                     payload
                 });
+            } else {
+                yield put({type: 'showLoading'});
             }
         },
         *queryOrderById({payload}, {call, put}) {
@@ -219,7 +229,7 @@ export default {
 			if(!isLogin){
 				return;
 			}
-			const {data} = yield call(resource.query, {});
+			const {data} = yield call(products.query, {});
 			if(data && data.success){
 				yield put({
 					type:'getProductsSuccess',

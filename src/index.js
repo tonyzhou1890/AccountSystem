@@ -40,8 +40,12 @@ app.model(resource);
 app.model(customerBills);
 app.model(supplierBills);
 
+console.log(app)
+
 // 4. Router
 app.router(router);
 
 // 5. Start
 app.start('#root');
+
+export default app
