@@ -15,6 +15,7 @@ import Manage from './routes/Manage/Manage';
 import Customers from './routes/Customers/Customers';
 import Products from './routes/Products/Products';
 import Suppliers from './routes/Suppliers/Suppliers';
+import Installations from './routes/Installations/Installations'
 import {requireAuth} from './utils/webSessionUtils';
 
 export default function ({history}) {
@@ -51,6 +52,8 @@ export default function ({history}) {
                     <Route path="/product" onEnter={requireAuth} component={Products}/>
                     <Route path="/supplier" onEnter={requireAuth} component={Suppliers}/>
                 </Route>
+
+                <Route path="/installations" onEnter={requireAuth} component={Installations}></Route>
 
             </Route>
         </Router>

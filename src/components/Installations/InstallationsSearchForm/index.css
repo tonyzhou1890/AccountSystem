@@ -1,0 +1,8 @@
+.installationsSearchForm {
+  display: inline-block;
+  text-align: left;
+}
+
+.installationsSearchForm button {
+  margin-top: 2px;
+}

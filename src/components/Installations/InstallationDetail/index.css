@@ -1,0 +1,44 @@
+.installationFormContainer {
+  width: 100%;
+  padding: 0 22px;
+  background: #fff;
+}
+
+.installationForm {
+  width: 100%;
+  margin: 28px 0 22px 0;
+}
+
+.formColumn {
+  display: inline-block;
+  width: 50%;
+}
+
+.formTitle {
+  padding: 20px 0;
+  border-bottom: solid 2px #979797;
+  text-align: center;
+  font-size: 20px;
+  position: relative;
+}
+
+.buttonGroup {
+  margin: 30px 0 100px;
+
+}
+
+.confirmButton,
+.cancelButton {
+  width: 200px;
+  height: 40px;
+  line-height: 30px;
+  font-size: 16px
+}
+
+.confirmButton {
+  margin-right: 20px;
+}
+
+.cancelButton {
+  border: solid 1px #979797;
+}

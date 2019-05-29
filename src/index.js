@@ -15,6 +15,7 @@ import settlement from './models/settlement';
 import resource from './models/resource';
 import customerBills from './models/customerBills';
 import supplierBills from './models/supplierBills';
+import installations from './models/installations'
 
 // 1. Initialize
 const app = dva({
@@ -39,6 +40,7 @@ app.model(settlement);
 app.model(resource);
 app.model(customerBills);
 app.model(supplierBills);
+app.model(installations)
 
 console.log(app)
 

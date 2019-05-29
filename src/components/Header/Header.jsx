@@ -16,6 +16,7 @@ const menus = [
 	['settlement', '/settlement', '结算', 'pushpin-o'],
 	['bills', '/bills', '对账', 'copy'],
 	['manage', '/manage', '管理', 'setting'],
+	['installations', '/installations', '安装', 'tool'],
 ];
 
 const manageChildMenus = [

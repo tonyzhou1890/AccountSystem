@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 
 let installSchema = new Schema({
     installTime: Date,
-	  number: Number,
+	  installNumber: Number,
     status: String,
     customerId: String,
     productId: String,
